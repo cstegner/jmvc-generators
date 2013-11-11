@@ -17,6 +17,6 @@ steal('steal/generate','steal/generate/system.js', function(steal) {
 			path_to_steal : steal.File(moduleId).pathToRoot()
 		}, steal.system);
 	
-	steal.generate("jmvc/generate/templates/app", moduleId, data);
+	steal.generate("jmvc-generators/generate/templates/app", moduleId, data);
 });
 

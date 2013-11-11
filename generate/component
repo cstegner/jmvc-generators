@@ -1,0 +1,22 @@
+print(String(new java.io.File('../').getAbsoluteFile().toString()))
+
+if (_args.length < 1) {
+	print("USAGE : steal/js steal/generate/component app/component")
+	print("EX    : steal/js steal/generate/component cookbook/tabs");
+	print("      > cookbook/tabs/tabs.js")
+	print();
+	quit();
+}
+
+load('steal/rhino/rhino.js');
+
+steal(	'steal/generate',
+		'steal/generate/system.js',	
+function(steal){
+
+	var md = steal.generate.convert(_args[0]);
+
+	md.path_to_steal = new steal.File(md.module).pathToRoot()
+	steal.generate("jmvc-generators/generate/templates/component",md.module,md)
+});
+

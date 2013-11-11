@@ -11,7 +11,7 @@ steal('steal/generate',function(steal){
 	var md = steal.generate.convert(_args[0]);
 
 	md.path_to_steal = new steal.File(md.module).pathToRoot();
-	steal.generate("jmvc/generate/templates/plugin",md.module,md);
+	steal.generate("jmvc-generators/generate/templates/plugin",md.module,md);
 	
 })();
 

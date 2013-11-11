@@ -1,0 +1,22 @@
+steal(
+    'can',
+    './init.mustache', 
+function(can, initView){
+    /**
+     * @class <%= module %>
+	 * @alias <%= Alias %>   
+     */
+    return can.Component.extend({
+        tag: "<%= underscore %>",
+        template: initView,
+
+	    /** @Scope */
+        scope: {
+            message: "Hello There!"
+        },
+
+        /** @Events */
+        events: {}
+   });
+});
+

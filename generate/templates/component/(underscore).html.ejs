@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title><%= Alias %></title>
+	</head>
+	<body>
+    	<h1><%= Alias %> Demo</h1>
+
+		<script src='<%= path_to_steal %>/steal/steal.js'></script>
+		<script>
+		steal('can', '<%= module %>',function(can, <%= Alias %>){
+
+            var template = can.view.mustache("<<%= underscore %>></<%= underscore %>>");
+            $(document.body).append( template() );
+		});
+		</script>
+	</body>
+</html>

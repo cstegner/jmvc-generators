@@ -11,7 +11,7 @@ load('steal/rhino/rhino.js');
 
 steal(	'steal/generate',
 		'steal/generate/system.js',	
-		'jmvc/generate/templates/model.js',
+		'jmvc-generators/generate/templates/model.js',
 function(steal){
 	var generate = steal.generate;
 	//check capitalization
@@ -49,7 +49,7 @@ function(steal){
 	md.type = _args[1]
 
   // generate /scaffold files
-	steal.generate("jmvc/generate/templates/scaffold",md.appPath+"/"+md.underscore,md);
+	steal.generate("jmvc-generators/generate/templates/scaffold",md.appPath+"/"+md.underscore,md);
 
 	try{
 		
@@ -71,14 +71,14 @@ function(steal){
 		//quit();
 	}
   
-	var text = readFile("jmvc/generate/templates/scaffoldHookup.ejs");
+	var text = readFile("jmvc-generators/generate/templates/scaffoldHookup.ejs");
 	var hookup = new steal.EJS({
 		text: text
 	}).render(md);
 	steal.generate.insertCode(md.appPath+"/"+md.appName+".js", hookup );
 	
 	// insert the HTML into index
-	var text = readFile("jmvc/generate/templates/scaffoldHTML.ejs");
+	var text = readFile("jmvc-generators/generate/templates/scaffoldHTML.ejs");
 	var hookupHTML = new steal.EJS({
 		text: text
 	}).render(md);
@@ -93,7 +93,7 @@ function(steal){
 		steal.print('      '+md.appPath+"/index.html"+" (html added)");
 	}
 	
-	var text = readFile("jmvc/generate/templates/scaffoldTest.ejs"),
+	var text = readFile("jmvc-generators/generate/templates/scaffoldTest.ejs"),
 		testCode = new steal.EJS({
 			text: text
 		}).render(md);
